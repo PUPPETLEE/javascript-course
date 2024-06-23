@@ -1,0 +1,11 @@
+.add-button{
+  background-color: yellow;
+  border: solid;
+  border-width: 1.5px;
+
+}
+.buy-button{
+  background-color: orange;
+  border: solid;
+  border-width: 1.5px;
+}
