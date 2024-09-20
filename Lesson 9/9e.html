@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+
+  </head>
+  <body>
+    <input class="js-name" type="text" placeholder="name" onkeydown=" handlerNameKeydown(event)">
+    <button class = 'js-submit-button' 
+    onclick="handlerName(); ">
+      Submit
+    </button>
+    <p></p>
+  <script>
+
+    function  handlerNameKeydown(event){
+      if(event.key === 'Enter'){
+        handlerName();
+      }
+    }
+
+    function handlerName(){
+     document.querySelector('p').innerHTML = `Your name is: ${document.querySelector('.js-name').value}`;
+    }
+
+
+
+  </script>
+  </body>
+</html>

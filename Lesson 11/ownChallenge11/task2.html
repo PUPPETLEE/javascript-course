@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body{
+        background-color: lightblue;
+      }
+      .grid-todo{
+        display: grid;
+        grid-template-rows: 100px 50px;
+        justify-content: center;
+        align-items: center;
+      }
+      .tittle{
+        margin-left: 55px;
+        color: white;
+        
+      }
+      .todolist-grid{
+        display: grid;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .todo-container{
+        width: 200px;
+      }
+    
+      .trash-buton{
+        border: none;
+        background-color: red;
+        
+      }
+      .trash-icon{
+       height: 20px;
+       padding: 10px;
+       mix-blend-mode: multiply; /* This blends the icon with the background color */
+      }
+      .activity{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 140px;
+        width: 140px;
+      }
+      .todolist-flex{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        margin: 5px 0;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      
+      }
+      .todolist-container{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+      }
+      .check {
+        text-decoration: line-through;
+        text-decoration-color: lightblue;
+        background-color: rgb(216, 216, 216);
+      }
+      .darker-button{
+        background-color: #b22222; /* Darker shade of red */
+
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="grid-todo">
+      <p class="tittle">Todo List +</p>
+      <div>
+        <input class="js-todo-input" type="text" placeholder="Add To todo">
+        <button onclick="addTodo();">
+          Add </button>
+      </div>
+      <div class="js-todolist todolist-grid"></div>  
+    </div>
+
+    <script>
+            
+     const todolist = JSON.parse(localStorage.getItem('todo')) || [
+        {
+          activity: 'hahaha',
+          checked: false
+        }
+      ];
+
+
+
+      renderTodoList();
+
+      const value = document.querySelector('check-box');
+
+      function renderTodoList(){
+          let todolistHTML = '';
+
+          for(let i = 0; i < todolist.length; i++){
+                 const todolistObject = todolist[i];
+
+                 //review this part
+                 const {activity, checked} = todolistObject;
+
+                const html=`
+                <div class="todolist-flex ${checked ? 'check':''}">
+                  <div class="todolist-container">                                                            
+                 <input id="my-checkbox${i}" class="js-check-box" type="checkbox" ${checked ? "checked":""} onclick="isChecked(${i})">
+
+                    <span class="activity">${activity}</span>
+                  </div>
+                   <button class="trash-buton ${checked ? "darker-button": ''}" onclick="todolist.splice(${i},1);  renderTodoList();">
+                    <img class="trash-icon" src="icons/trash.png" alt="img">
+                  </button>
+                </div>
+                `;
+
+                localStorage.setItem('todo',JSON.stringify(todolist));
+                todolistHTML+= html;
+          }
+          console.log(todolistHTML);
+          document.querySelector('.js-todolist').innerHTML = todolistHTML;
+      };
+
+      function addTodo(){
+          let inputElement = document.querySelector('.js-todo-input');
+         console.log(inputElement.value);
+         const activity = inputElement.value;
+
+
+         todolist.push({
+          activity: activity,
+          checked: false
+         });
+
+         localStorage.setItem('todo',JSON.stringify(todolist));
+         inputElement = '';
+         renderTodoList();
+      };
+
+    
+
+      function isChecked(index) {
+        todolist[index].checked = !todolist[index].checked;
+        localStorage.setItem('todo', JSON.stringify(todolist));
+        
+        renderTodoList();
+      }
+
+
+
+    </script>
+  </body>
+</html>

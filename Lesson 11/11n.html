@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    
+    <script>
+
+      function countWords(words){
+
+        const fruits = {
+        apple: 0 || null,
+        grape: 0 || null
+
+        }
+        
+
+        for(let i = 0; i<words.length; i++){
+          let word = words[i];
+          if(word === 'apple'){
+            fruits.apple += 1;
+          };
+
+          if(word === 'grape') {
+            fruits.grape += 1;
+          };
+
+        }
+        return fruits
+
+      }
+
+      console.log(countWords(['apple','grape','apple','apple']));
+    </script>
+  </body>
+</html>

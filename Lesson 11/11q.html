@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    
+    <script>
+      function findindex(array,word){
+        //-1 means false
+        let index = -1;
+        for(let i =0; i<array.length; i++){
+          if(array[i] === word){
+            index =  i;
+            break;
+          }
+        }
+
+        return index;
+
+      }
+
+      console.log(findindex(['green','red','blue','red'],'red'));
+      console.log(findindex(['green','red','blue','red'],'yellow'));
+
+
+    </script>
+  </body>
+</html>

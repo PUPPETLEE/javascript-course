@@ -1,0 +1,28 @@
+<html>
+  <head>
+
+    <button class="js-start-button" onclick="buttonChange();">Add to cart</button>
+    <p class="js-added-notif"></p>
+  </head>
+  <body>
+    
+    <script>
+
+      document.querySelector('.js-start-button').addEventListener('click',()=>{
+        buttonChange();
+      })
+
+
+        function buttonChange(){
+
+          document.querySelector('.js-added-notif').innerHTML = 'Added';
+          
+          setTimeout(()=>{
+            setTimeout(
+            document.querySelector('.js-added-notif').innerHTML = "", );
+            },2000);
+
+        }
+    </script>
+  </body>
+</html>

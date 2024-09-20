@@ -1,0 +1,32 @@
+
+<html>
+  <head>
+    <title>app</title>
+    <button onclick="numberMesseges++,console.log(numberMesseges),notification();
+">add</button>
+    <button  onclick="numberMesseges--,console.log(numberMesseges),notification();
+">removeItem</button>
+  </head>
+  <body>
+    
+    <script>
+      let numberMesseges=0;
+      let intervalId;
+      function notification(){
+        if(numberMesseges>=0){
+        intervalId = setInterval(function(){
+          document.title = `(${numberMesseges})notifcation`;
+        },1000)
+      }else{
+        clearInterval(intervalId);
+        document.title = 'app';
+      }
+      };
+      
+
+      
+       
+
+    </script>
+  </body>
+</html>

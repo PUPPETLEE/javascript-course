@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    
+    <script>
+      let arrayOfString = ['hello','world','search','good'];
+
+      // if the object we didnt find in our array we display -1 it means false
+      let index = -1;
+      for(let i = 0; i<arrayOfString.length; i++){
+
+        if(arrayOfString[i]=== 'search'){
+          index = i;
+
+        }
+
+      }
+
+      console.log(index);
+
+      arrayOfString = ['not','found'];
+      index = -1;
+
+      for(let i = 0; i< arrayOfString.length; i++){
+        if(arrayOfString[i] === 'search'){
+          index = i;
+        }
+      }
+
+      console.log(index)
+
+    </script>
+  </body>
+</html>

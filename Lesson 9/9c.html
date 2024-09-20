@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  </head>
+  <body>
+
+    <button class="heads" onclick="coin('heads');">
+      heads
+    </button>
+    <button class="tails" onclick="coin('tails')" >
+      tails
+    </button>
+    <p></p>
+    <script>
+
+      function coin(choice){
+        if(choice === 'heads'){
+          document.querySelector('p').innerHTML = 'You chose: heads'
+        }else if (choice === 'tails'){
+          document.querySelector('p').innerHTML = 'You chose: tails'
+        }
+      }
+    
+      
+
+
+    </script>
+  </body>
+</html>

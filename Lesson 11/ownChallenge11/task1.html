@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>todo list</title>
+    <style>
+      body{
+        background-color: rgb(0, 109, 235);
+        /*to center a div flex and justify-content*/
+        display: flex;
+        justify-content: center;
+      
+      }
+      .todo-list-background{
+        background-color: white;
+        margin-top: 50px;
+        text-align: center;
+        width: 600px;
+        height: 600px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .todo-input-flex{
+       display: grid;
+       grid-template-columns: 300px 60px;
+       column-gap: 10px;
+       row-gap: 10px;
+
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+      }
+      .todo-flex{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        row-gap: 2px;
+        justify-content: space-around;
+        margin-left: 120px;
+
+      }
+      
+      .input-button{
+        padding: 8px;
+        border: solid;
+        border-color: blue;
+        border-width: 2px;
+        height: 28px;
+        border-radius: 4px;
+      }
+      .add-button, .trash-button{
+        padding: 9px;
+        font-size: 10px;
+        color: white;
+        background-color: rgb(0, 109, 235);
+        border: none;
+        border-radius: 6px;
+        height: 45px;
+        cursor: pointer;
+      }
+      .trash-button{
+        width: 50px;
+        height: 50px;
+      }
+      
+      .activity-container{
+      display: flex;
+      width: 350px;
+      border-radius: 8px;
+      background-color: rgb(100, 206, 255);
+      justify-content: space-between;
+      align-items: center;
+      margin-left: -5px;
+      padding: 8px;
+      }
+      
+      .image-icon{
+        width: 50px;
+        margin-left:  -10px ;
+        mix-blend-mode: multiply;
+      }
+    
+    </style>
+  </head>
+  <body>
+
+    <div class="todo-list-background">
+      <div class="todo-input-flex">
+        <input class="js-input-todo input-button" 
+        onkeydown="  
+        if(event.key === 'Enter'){
+          addTodo()
+        }" 
+        type="text" placeholder="todo">
+        
+        <button class="add-button"  onclick="
+        const todoInput = document.querySelector('.js-input-todo');
+        console.log(todoInput);
+        if(todoInput === ''){
+          alert('Plsss add something');
+        }
+        else{
+          addTodo();
+        }
+        
+      ">ADD</button>
+      </div>
+     
+
+    <div class="js-todo-list todo-flex"></div>
+    </div>
+
+    
+    <script>
+      console.log('wtfg')
+      console.log(document.querySelector('.js-input-todo').innerHTML);
+
+      //add the todo in a array
+      //and when the todo is listed the button delete must be in it 
+    
+      /*const todolist = JSON.parse(localStorage.getItem('todo')) || [{
+        activity: 'eatfoodweeeeeeeeeeeeeeeeeeeeeee'
+      }];
+      */
+
+
+      const todolist = JSON.parse(localStorage.getItem('todo')) || [{
+        activity: 'hotdog'
+      },{
+        activity:'whgawawew'
+      }];
+      
+
+  
+
+      console.log(todolist);
+    
+      renderTodoList();
+
+
+      function renderTodoList(){
+        let todoListHtml = '';
+
+        for(let i = 0; i < todolist.length; i++){
+          const todoListObject  = todolist[i];
+
+          //add it to the array 
+          const { activity } = todoListObject;
+
+          const html = `
+            <div class = "activity-container"> 
+            ${activity}
+            <button class="trash-button" onclick=" todolist.splice(${i}, 1); renderTodoList();">
+            <img class="image-icon" src="icons/trash.png" alt="">
+
+          </button> 
+           </div>
+            
+          `;
+          
+          //if the item deleted set this if you try to refresh it doesnt comeback
+          localStorage.setItem('todo',JSON.stringify(todolist));
+
+          todoListHtml += html;
+
+        }
+        console.log(todoListHtml);
+        document.querySelector('.js-todo-list').innerHTML = todoListHtml;
+      }
+
+      function addTodo(){
+        const inputElement = document.querySelector('.js-input-todo');
+        const activity = inputElement.value;
+        console.log(document.querySelector('.js-input-todo').innerHTML);
+
+        //checking input 
+        if(activity === ''){
+          alert("Please enter a task before adding it to the list.");
+        }else{
+          todolist.push({
+          activity: activity
+        });
+
+        localStorage.setItem('todo',JSON.stringify(todolist));
+      
+        //to reset the input element after puhs
+        console.log(todolist);
+        inputElement.value = '';
+        renderTodoList();
+        }
+     
+      }
+
+   
+
+
+    </script>
+  </body>
+</html>

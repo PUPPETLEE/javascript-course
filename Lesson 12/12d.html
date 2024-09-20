@@ -1,0 +1,30 @@
+<html>
+  <head>
+
+    <button class="js-start-button">Start</button>
+  </head>
+  <body>
+    
+    <script>
+      document.querySelector('.js-start-button').addEventListener('click',()=>{
+        buttonChange();
+      });
+
+        isChange = false;
+
+        function buttonChange(){
+
+           if(!isChange){
+            setTimeout(document.querySelector('.js-start-button').innerHTML = 'Loading...', 2000);
+            setTimeout(()=>{
+            setTimeout(document.querySelector('.js-start-button').innerHTML = 'Finished', 2000);
+            },1000);
+            isChange = true;
+           }else{
+            document.querySelector('.js-start-button').innerHTML = 'Start';
+            isChange = false;
+           }
+        }
+    </script>
+  </body>
+</html>

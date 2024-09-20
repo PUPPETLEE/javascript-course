@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script>
+       function removeEgg(foods){
+        const reversedFoods = foods.reverse();
+        const result = [];
+        let eggRemoved = 0;
+        for(let i = 0; i<reversedFoods.length; i++){
+
+   
+          if(foods[i] === 'egg' && eggRemoved <2){
+            eggRemoved++
+            continue;
+          }
+
+          //use push  becouse it doest push empty strings
+          result.push(reversedFoods[i]);
+
+        }
+        return result.reverse();
+
+       }
+
+       console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+       //ham eggx eggx apple egg
+    </script>
+   
+  </body>
+</html>

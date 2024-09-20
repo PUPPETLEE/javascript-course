@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script>
+      function removedPS5(ps5){
+        const result = [];
+        let ps5Removed = 0;
+
+        for (let i = 0; i<ps5.length; i++){
+
+          if(ps5[i] === 'ps5' && ps5Removed <3){
+            ps5Removed++
+            continue;
+          }
+
+
+          result.push(ps5[i]);
+
+        }
+
+        return result;
+      }
+
+      console.log(removedPS5(['ps5','hotdog','ps5','ps5','ps5','xbox']));
+    </script>
+   
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <html>
+    <head>
+      <title>Calculation</title>
+      <link rel="stylesheet" href="css/10j.css">
+   
+    </head>
+    <body>
+      <p class="js-display calculation">
+      </p>
+      
+      <p>
+        <button class="calculator-button" onclick="
+        console.log(updateCalculation('1'));">
+          1
+        </button>
+        <button  class="calculator-button" onclick="console.log(updateCalculation('2'));">
+          2
+        </button>
+        <button  class="calculator-button" onclick="console.log(updateCalculation('3'));">
+          3
+        </button>
+        <button  class="calculator-button orange-button" onclick="console.log(updateCalculation('+'));">
+          +
+        </button>
+
+      </p>
+      <p>
+         <button  class="calculator-button"  onclick="console.log(updateCalculation('4'));">
+        4
+      </button>
+      <button  class="calculator-button" onclick="console.log(updateCalculation('5'));">
+        5
+      </button>
+      <button  class="calculator-button" onclick="console.log(updateCalculation('6'));">
+        6
+      </button>
+  
+ 
+      <button  class="calculator-button orange-button" onclick=" console.log(updateCalculation('-'));">
+        -
+      </button>
+
+      </p>
+
+      <p>
+        <button  class="calculator-button" onclick="console.log(updateCalculation('7'));">
+       7
+     </button>
+     <button  class="calculator-button" onclick="console.log(updateCalculation('8'));">
+       8
+     </button>
+     <button  class="calculator-button" onclick="console.log(updateCalculation('9'));">
+       9
+     </button>
+ 
+
+     <button class="calculator-button orange-button" onclick=" console.log(updateCalculation('*'));">
+       *
+     </button>
+     </p>
+
+     
+     <p>
+      <button  class="calculator-button" onclick="console.log(updateCalculation('0'));">
+        0
+      </button>
+      <button  class="calculator-button" onclick="console.log(updateCalculation('.'));">
+        .
+      </button>
+      <button  class="calculator-button " onclick=";
+        //don't use eval for coding it's bad 
+        calculation = eval(calculation);
+        console.log(calculation); ">
+        =
+      </button>
+
+      <button  class="calculator-button orange-button" onclick=" console.log(updateCalculation('/'));">
+        /
+      </button>
+
+      </p>
+      <button  class="calculator-button clear-button" onclick=" calculation = ''
+      display();
+      ">
+        Clear 
+      </button>
+      <script src="script/10j.js"></script>
+
+      
+    </body>
+  </html>
+</html>
